@@ -4,6 +4,8 @@ import joblib
 import pandas as pd
 import streamlit as st
 
+import base64
+
 from pathlib import Path
 
 # ---------------------------------------------------------
@@ -114,8 +116,38 @@ st.markdown(
 # ---------------------------------------------------------
 # HEADER
 # ---------------------------------------------------------
+# ---------------------------------------------------------
+# RESPONSIVE HEADER IMAGE - NO CROPPING
+# ---------------------------------------------------------
+
+def get_base64_image(image_path):
+    with open(image_path, "rb") as f:
+        return base64.b64encode(f.read()).decode()
+
+
 if HEADER_IMAGE_PATH.exists():
-    st.image(str(HEADER_IMAGE_PATH), use_container_width=True)
+
+    encoded_image = get_base64_image(HEADER_IMAGE_PATH)
+
+    st.markdown(
+        f"""
+        <div style="
+            width: 100%;
+            margin-bottom: 1.5rem;
+        ">
+            <img
+                src="data:image/png;base64,{encoded_image}"
+                style="
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                    border-radius: 12px;
+                "
+            >
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
 st.markdown(
     '<div class="main-title">Tourism Package Purchase Prediction</div>',
