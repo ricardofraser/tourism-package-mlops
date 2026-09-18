@@ -1,0 +1,46 @@
+{
+  "pre_engagement": {
+    "threshold": 0.4,
+    "features": [
+      "Age",
+      "TypeofContact",
+      "CityTier",
+      "Occupation",
+      "Gender",
+      "NumberOfPersonVisiting",
+      "PreferredPropertyStar",
+      "MaritalStatus",
+      "NumberOfTrips",
+      "Passport",
+      "OwnCar",
+      "NumberOfChildrenVisiting",
+      "Designation",
+      "MonthlyIncome"
+    ],
+    "mlflow_run_id": "c1d0e6468cf941bb917f13d0c7ef013f"
+  },
+  "post_engagement": {
+    "threshold": 0.43,
+    "features": [
+      "Age",
+      "TypeofContact",
+      "CityTier",
+      "Occupation",
+      "Gender",
+      "NumberOfPersonVisiting",
+      "PreferredPropertyStar",
+      "MaritalStatus",
+      "NumberOfTrips",
+      "Passport",
+      "OwnCar",
+      "NumberOfChildrenVisiting",
+      "Designation",
+      "MonthlyIncome",
+      "PitchSatisfactionScore",
+      "ProductPitched",
+      "NumberOfFollowups",
+      "DurationOfPitch"
+    ],
+    "mlflow_run_id": "ce1f686e15154ef8a1509e5e68037acf"
+  }
+}
