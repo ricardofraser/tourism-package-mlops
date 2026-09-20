@@ -17,10 +17,9 @@ RAW_PATH = DATA_DIR / "tourism.csv"
 df = pd.read_csv(RAW_PATH)
 
 
-# Remove non-predictive and administrative columns
+# Remove exported dataframe index
 # Unnamed: 0 is an exported dataframe index
-# CustomerID uniquely identifies a customer but does not describe customer behaviour
-df.drop(columns=['Unnamed: 0', 'CustomerID'], inplace=True)
+df.drop(columns=['Unnamed: 0'], inplace=True)
 
 
 # Correct the inconsistent gender label identified during exploratory data analysis
@@ -29,14 +28,21 @@ df["Gender"] = df["Gender"].replace({
     "Fe Male": "Female"
 })
 
-# Distribution of target before dupicate removal
+
+# Distribution of target before duplicate removal
 target_distribution = pd.DataFrame({
     "Count": df["ProdTaken"].value_counts().sort_index(),
-    "Percentage": (df["ProdTaken"].value_counts(normalize=True).sort_index() * 100).round(2)
+    "Percentage": (
+        df["ProdTaken"]
+        .value_counts(normalize=True)
+        .sort_index() * 100
+    ).round(2)
 })
+
 print("\n Target Distribution before duplicate removal")
 print(target_distribution)
 print("\n -------------")
+
 
 # Remove exact duplicate records identified during exploratory data analysis
 # This prevents repeated observations from appearing in the modelling dataset
@@ -47,6 +53,11 @@ df = df.drop_duplicates().reset_index(drop=True)
 
 rows_after = len(df)
 duplicates_removed = rows_before - rows_after
+
+
+# Remove non-predictive customer identifier
+# CustomerID uniquely identifies a customer but does not describe customer behaviour
+df.drop(columns=['CustomerID'], inplace=True)
 
 
 # Define the target variable

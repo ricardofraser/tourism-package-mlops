@@ -1,6 +1,6 @@
 {
   "pre_engagement": {
-    "threshold": 0.4,
+    "threshold": 0.45,
     "features": [
       "Age",
       "TypeofContact",
@@ -17,10 +17,10 @@
       "Designation",
       "MonthlyIncome"
     ],
-    "mlflow_run_id": "d7ccc9ab26b24bf8a4efb6c641d7f2ca"
+    "mlflow_run_id": "0dc3c9e5597c4e62b89a6fd4b11cd0df"
   },
   "post_engagement": {
-    "threshold": 0.43,
+    "threshold": 0.4,
     "features": [
       "Age",
       "TypeofContact",
@@ -41,6 +41,6 @@
       "NumberOfFollowups",
       "DurationOfPitch"
     ],
-    "mlflow_run_id": "b25dc9857e2146e69f194bcde35bd6c9"
+    "mlflow_run_id": "1c35f1b6d8ad432082ce88cdaa96d0df"
   }
 }

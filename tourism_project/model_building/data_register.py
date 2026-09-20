@@ -58,6 +58,7 @@ if unexpected_columns:
     print(
         f"Warning: Dataset contains unexpected columns: "
         f"{unexpected_columns}"
+        f"\nUnnamed: 0 is a redundant CSV index column and will be removed during data preparation"
     )
 
 # Confirm successful dataset registration
