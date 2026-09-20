@@ -163,10 +163,17 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+st.caption(
+    "Prediction decisions use model-specific operating thresholds rather than "
+    "a fixed 50% cutoff. A customer may therefore be classified as likely to "
+    "buy even when the estimated purchase probability is below 50%."
+)
+
 
 # ---------------------------------------------------------
 # RESULT DISPLAY
 # ---------------------------------------------------------
+
 def show_result(title, result, probability):
 
     if result is None:
